@@ -23,11 +23,6 @@
                     <input class="form-control" type="text" name="first_name" id="first_name" value="{{ Request::old('first_name') }}">
                 </div>
 
-                <div class="form-group">
-                    <label for="image">Profile Pic. (only .jpg)</label>
-                    <input type="file" name="image" class="form-control" id="image">
-                </div>
-
                 <div class="form-group {{$errors->has('password')  ? 'has-error' : '' }} ">
                     <label for="password">Your Password</label>
                     <input class="form-control" type="password" name="password" id="password" value="{{ Request::old('password') }}">

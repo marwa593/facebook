@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Addfriend;
+use \Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -105,8 +107,33 @@ class UserController extends Controller
 
     }
 
+    public function search(Request $request)
+    {
+        $name = $request->get('search');
+        $searchname = User::where('firstname','like','%'.name.'%')->get();
+        return redirect()->route('showsearch')->with('searchname',$searchname);
+    }
 
+    public function addfriend($id)
+    {
+        // echo $id;
+        $user_requested = Auth::user()->id;
+        $acceptor = $id;
+        $addfriend = new Addfriend();
+        $addfriend->user_requested = $user_requested;
+        $addfriend->acceptor = $acceptor;
+        $addfriend->save();
+        return redirect()->route('dashboard')->with('addfr','You\'ve sent request!');
+        
+    }
 
+    public function deletefriend($id)
+    {
+        // echo $id;
+        $del = DB::table('addfriends')->where('acceptor',$id)->delete();
+        return redirect()->route('dashboard')->with('delfr','You\'ve deleted request!' );
+
+    }
 
 
 }

@@ -62,7 +62,7 @@ Route::group(['middleware' => ['web']] ,function() {
 
 
 
-    
+
     Route::get('/dashboard', [
 
         'uses'=>'PostController@getdashboard',
@@ -98,7 +98,23 @@ Route::group(['middleware' => ['web']] ,function() {
         'uses'=>'PostController@postEditpost',
         'as'=>'edit',
 
+    ]);
 
+    Route::get('/addfriend/{id}',[
+        'uses' => 'UserController@addfriend',
+        'as' => 'add.friend'
+    ] );
+
+    Route::get('/deletefriend/{id}',[
+        'uses' => 'UserController@deletefriend',
+        'as' => 'del.friend'
+    ] );
+
+
+    Route::post('/comment/{post_id}', [
+        'uses' => 'CommentController@postComment',
+        'as' => 'add.comment'
+        //'middleware'=>'auth'
     ]);
 
 
@@ -110,12 +126,6 @@ Route::group(['middleware' => ['web']] ,function() {
 
 
 
-
-    /*
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    });
-*/
 
 
 });
