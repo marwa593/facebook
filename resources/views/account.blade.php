@@ -24,10 +24,10 @@ Account
         </div>
     </section>
 
-    @if (Storage::disk('local')->has($user->first_name . '-' . $user->id . '.jpg'))
+    @if (Storage::disk('local')->has($user->name . '-' . $user->id . '.jpg'))
         <section class="row new-post">
             <div class="col-md-6 col-md-offset-3">
-                <img src="{{ route('account.image', ['filename' => $user->first_name . '-' . $user->id . '.jpg']) }}" >
+                <img src="{{ route('account.image', ['filename' => $user->name . '-' . $user->id . '.jpg']) }}" >
             </div>
         </section>
     @endif

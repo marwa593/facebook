@@ -25,17 +25,19 @@
                 <li><a href="{{ route('logout') }}">Logout</a></li>
 
                 <li><a href="{{ route('account') }}">Account</a></li>
-                {{-- <li>
-                    @if (Storage::disk('local'))
+                {{-- @if (Auth::user())
+                <li>
+                    @if (Storage::disk('local')->has($user->name . '-' . $user->id . '.jpg'))
                     <section class="row new-post">
                         <div class="col-md-6 col-md-offset-3">
-                            <img src="{{ route('account.image') }}" style="height: 6.5ex ">
+                            <img src="{{ route('account.image', ['filename' => $user->first_name . '-' . $user->id . '.jpg'] ) }}" style="height: 6.5ex ">
                         </div>
                     </section>
-                    @else
+                    @endif
+                @else
                     <img src="https://i.pravatar.cc/100" style="height: 6.5ex" >
-                @endif
-                </li> --}}
+                </li>
+                @endif --}}
             </ul>
 
             </div><!-- /.navbar-collapse -->
