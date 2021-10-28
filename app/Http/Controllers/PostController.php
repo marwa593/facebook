@@ -34,7 +34,7 @@ class PostController extends Controller
         $message='post created!';
        }
 
-        
+
         return redirect()->route('dashboard')->with(['message' =>$message ]);
     }
      public function getdeletepost($post_id)
@@ -48,7 +48,7 @@ class PostController extends Controller
 
         }
         $post->delete();
-        return redirect()->route('dashboard')->with(['message' =>'Successfully Deleted' ]);    
+        return redirect()->route('dashboard')->with(['message' =>'Successfully Deleted' ]);
      }
 
 
@@ -63,9 +63,11 @@ class PostController extends Controller
         $post->update();
         return response()->json(['new_body'=>$post->body],200);
 
+        return redirect()->route('dashboard');
+
 
      }
-    
+
 
 
 }

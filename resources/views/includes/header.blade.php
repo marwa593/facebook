@@ -1,5 +1,6 @@
+
 <header>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default" style="align-items: center">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -16,11 +17,23 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
             <ul class="nav navbar-nav navbar-right">
-                  <li><a href="{{ route('logout') }}">Logout</a></li>
+                <li><a href="{{ route('logout') }}">Logout</a></li>
 
-                  <li><a href="{{ route('account') }}">Account</a></li>
+                <li><a href="{{ route('account') }}">Account</a></li>
+
+                {{-- <li>
+                    @if (Storage::disk('local'))
+                    <section class="row new-post">
+                        <div class="col-md-6 col-md-offset-3">
+                            <img src="{{ route('account.image') }}" style="height: 6.5ex ">
+                        </div>
+                    </section>
+                    @else
+                    <img src="https://i.pravatar.cc/100" style="height: 6.5ex" >
+                @endif
+                </li> --}}
             </ul>
-                
+
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>

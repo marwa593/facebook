@@ -15,7 +15,7 @@ use App\Http\Controllers;
 */
 
 
-Route::group(['middleware' => ['web']] ,function() {   
+Route::group(['middleware' => ['web']] ,function() {
 
     Route::group(['namespace' => '\App\Http\Controllers'], function(){
 
@@ -24,19 +24,19 @@ Route::group(['middleware' => ['web']] ,function() {
     Route::get('/', function () {
          return view('welcome');
     })->name('home');
-        
-        
+
+
     Route::post('/signup', [
 
         'uses'=>'UserController@postsignup',
-        'as'=>'signup' 
+        'as'=>'signup'
     ]);
 
 
     Route::post('/signin', [
 
         'uses'=>'UserController@postsignin',
-        'as'=>'signin' 
+        'as'=>'signin'
     ]);
 
 
@@ -44,25 +44,25 @@ Route::group(['middleware' => ['web']] ,function() {
     Route::get('/account', [
 
         'uses'=>'UserController@getaccount',
-        'as'=>'account' 
+        'as'=>'account'
     ]);
 
 
     Route::post('/updateaccount', [
 
         'uses'=>'UserController@postsaveaccount',
-        'as'=>'account.save' 
+        'as'=>'account.save'
     ]);
 
-    Route::post('/userimage/{filename}', [
+    Route::get('/userimage/{filename}', [
 
         'uses'=>'UserController@getuserimage',
-        'as'=>'account.image' 
+        'as'=>'account.image'
     ]);
 
 
 
-
+    
     Route::get('/dashboard', [
 
         'uses'=>'PostController@getdashboard',
@@ -75,7 +75,7 @@ Route::group(['middleware' => ['web']] ,function() {
         'uses'=>'PostController@postcreatePost',
         'as'=>'post.create',
         'middleware'=>'auth'
-        
+
     ]);
 
     Route::get('/post-delete/{post_id}', [
@@ -90,19 +90,19 @@ Route::group(['middleware' => ['web']] ,function() {
 
         'uses'=>'UserController@getlogout',
         'as'=>'logout',
-       
+
     ]);
 
     Route::post('/edit',[
-    
+
         'uses'=>'PostController@postEditpost',
         'as'=>'edit',
-       
-        
+
+
     ]);
 
-       
-  
+
+
 
 
 

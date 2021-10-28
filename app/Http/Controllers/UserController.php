@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
-    
-    
+
+
 
     public function postsignup(Request $request)
     {
@@ -28,18 +28,18 @@ class UserController extends Controller
         $email=$request['email'];
         $first_name=$request['first_name'];
         $password=bcrypt($request['password']);
-        
+
 
         $user=new User();
         $user->email=$email;
         $user->name=$first_name;
         $user->password=$password;
-       
-       
+
+
 
         $user->save();
         return redirect()->route('dashboard');
-  
+
 
     }
 
@@ -49,7 +49,7 @@ class UserController extends Controller
 
         $this->validate($request,[
             'email'=>'required|email',
-            
+
             'password'=>'required|min:3',
 
         ]);
@@ -70,7 +70,7 @@ class UserController extends Controller
     }
 
 
-    
+
     public function getaccount()
     {
 
@@ -86,7 +86,7 @@ class UserController extends Controller
         ]);
         $user=Auth::user();
         $user->name=$request['first_name'];
-        $user::update();
+        $user->update();
         $file=$request->file('image');
         $filename=$request['first_name'] . '-' . $user->id . '.jpg' ;
         if($file)
@@ -94,7 +94,7 @@ class UserController extends Controller
             Storage::disk('local')->put($filename ,File::get($file));
         }
 
-        return redirect()->route('account');
+        return redirect()->route('dashboard');
 
     }
 

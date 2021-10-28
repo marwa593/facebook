@@ -14,7 +14,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Create Post</button>
                 <input type="hidden" name="_token" value="{{ Session::token() }}">
-                
+
             </form>
         </div>
 </section>
@@ -34,26 +34,25 @@
                     </div>
 
                     <div class="interaction">
-                        <a href="#">Like</a>|
-                        <a href="#">DisLike</a>
+                        <a href="#">Comment</a>
 
-                        
+
                         @if(Auth::user() == $post->user)
 
                         |<a href="#" class="edit">Edit</a>|
                         <a href="{{route('post.delete', ['post_id'=>$post->id] )}}">Delete</a>
-                        
+
                         @endif
 
 
                     </div>
 
                 </article>
-                
+
 
             @endforeach
-          
-       
+
+
         </div>
     </section>
 
