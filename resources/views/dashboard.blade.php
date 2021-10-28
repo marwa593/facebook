@@ -21,6 +21,26 @@
 
     <section class="row posts">
         <div class="col-md-6 col-md-offset-3">
+            @if (session()->has('addfr'))
+                <p class="alert alert-success">
+                    {{session()->get('addfr')}}
+                    <script >
+                        function changeVlaueA() {
+                            document.getElementById("AddF").innerHTML = "Sent !";
+                        }
+                    </script>
+                </p>
+            @endif
+            @if (session()->has('delfr'))
+                <p class="alert alert-danger">
+                    {{session()->get('delfr')}}
+                    <script >
+                        function changeVlaueD() {
+                            document.getElementById("DelF").innerHTML = "Deleted !";
+                        }
+                    </script>
+                </p>
+            @endif
             <header><h3>What other people say...</h3></header>
 
             @foreach($posts as $post)
@@ -30,20 +50,47 @@
                     </p>
                     <div class="info">
                         posted by {{$post->user->name}} on {{$post->created_at}}
+                        @if(!(Auth::user() == $post->user))
+                        <a id="AddF" href="{{route('add.friend',['id' =>$post->user_id] )}}" style="padding-left: 10ex" onclick="#changetxtAdd">Send Req.</a>
+                        <a id="DelF" href="{{route('del.friend',['id' =>$post->user_id] )}}" style="padding-left: 3ex;" onclick="#changetxtDel">Delete Req.</a>
 
+                        <script id="changetxtAdd">
+                            changeVlaueA();
+                        </script>
+                        <script id="changetxtDel">
+                            changeVlaueD();
+                        </script>
+                        @endif
                     </div>
 
                     <div class="interaction">
-                        <a href="#">Comment</a>
+                        {{-- <a href="#">Comment</a> --}}
 
 
                         @if(Auth::user() == $post->user)
 
-                        |<a href="#" class="edit">Edit</a>|
+                        <a href="#" class="edit">Edit</a>|
                         <a href="{{route('post.delete', ['post_id'=>$post->id] )}}">Delete</a>
 
                         @endif
-
+                        <br>
+                            <form action="{{ route('add.comment',['post_id'=>$post->id]) }}" method="POST">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="Commbody" id="new-comment" rows="1" placeholder="Comment..."></textarea>
+                                </div>
+                                    <button type="submit" class="btn btn-primary">Comment</button>
+                                    <input type="hidden" name="_token" value="{{ Session::token() }}">
+                            </form>
+                            @foreach ($comments as $comment)
+                                    <article class="comment" data-commentId="{{ $comment->id }}">
+                                        <p>
+                                        {{$comment->Commbody}}
+                                        </p>
+                                        <div class="info">
+                                            comment by {{$comment->post->user->name}} on {{$comment->created_at}}
+                                        </div>
+                                    </article>
+                                    @endforeach
 
                     </div>
 

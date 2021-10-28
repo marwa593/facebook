@@ -16,11 +16,15 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-            <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <input class="search" style="border: 0ch" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </li>
+
                 <li><a href="{{ route('logout') }}">Logout</a></li>
 
                 <li><a href="{{ route('account') }}">Account</a></li>
-
                 {{-- <li>
                     @if (Storage::disk('local'))
                     <section class="row new-post">
