@@ -1,12 +1,19 @@
 @extends('layouts.master')
 
+@section('title')
+Facebook
+
+@endsection
+
 @section('content')
 
-@include('includes.message-block')
+
 
 
 <section class="row new-post">
         <div class="col-md-6 col-md-offset-3">
+            
+            @include('includes.message-block')
             <header><h3>What do you have to say?</h3></header>
             <form action="{{ route('post.create') }}" >
                 <div class="form-group">
