@@ -22,9 +22,12 @@
 }
 
 .error {
-    border: 1px solid red;
+    border: 1px solid red ;
     background-color: #f9b5af;
     color: red;
+    position:center;
+    
+    
     
 }
 
@@ -49,4 +52,13 @@
 .error,
 .success {
     text-align: center;
+    
+
 }
+
+
+.navbar{
+    background-color:#4687db;
+}
+
+

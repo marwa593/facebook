@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
- Facebook
+Facebook
 
 @endsection
 
@@ -9,7 +9,7 @@
 
 @include('includes.message-block')
 
-  <div class="row">
+<div class="row">
         <div class="col-md-3">
             <h3>Sign Up</h3>
             <form action="{{ route('signup') }}" method="post">
@@ -31,7 +31,7 @@
                 <input type="hidden" name="_token" value="{{ Session::token() }}">
             </form>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3" >
             <h3>Sign In</h3>
             <form action="{{ route('signin') }}" method="post">
                 <div class="form-group {{$errors->has('email')  ? 'has-error' : '' }} ">
@@ -47,7 +47,6 @@
             </form>
         </div>
     </div>
-
 
 
 @endsection

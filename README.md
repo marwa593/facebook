@@ -27,17 +27,14 @@ Laravel has the most extensive and thorough [documentation](https://laravel.com/
 
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-
 ## How to run:
 
-1- Create a database in phpmyadmin called "fblaravel".
+1- Create a database in phpmyadmin called "laravel" (if an error happened).
 
 2- Copy these codes:
 
     cd facebook
     composer install
+    cp .env.example .env
     php artisan migrate:fresh
     php artisan serve
