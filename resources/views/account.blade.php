@@ -15,7 +15,7 @@ Account
                     <input type="text" name="first_name" class="form-control" value="{{ $user->name }}" id="first_name">
                 </div>
                 <div class="form-group">
-                    <label for="image">Image (only .jpg)</label>
+                    <label  for="image">Image (only .jpg)</label>
                     <input type="file" name="image" class="form-control" id="image">
                 </div>
                 <button type="submit" class="btn btn-primary">Save Account</button>

@@ -1,12 +1,19 @@
 @extends('layouts.master')
 
+@section('title')
+Facebook
+
+@endsection
+
 @section('content')
 
-@include('includes.message-block')
+
 
 
 <section class="row new-post">
         <div class="col-md-6 col-md-offset-3">
+            
+            @include('includes.message-block')
             <header><h3>What do you have to say?</h3></header>
             <form action="{{ route('post.create') }}" >
                 <div class="form-group">
@@ -82,7 +89,7 @@
                                     <input type="hidden" name="_token" value="{{ Session::token() }}">
                             </form>
                             @foreach ($comments as $comment)
-                                    <article class="comment" data-commentId="{{ $comment->id }}">
+                                    <article class="comment" data-commentid="{{ $comment->id }}" data-postid="{{ $post->id }}" >
                                         <p>
                                         {{$comment->Commbody}}
                                         </p>
@@ -90,7 +97,7 @@
                                             comment by {{$comment->post->user->name}} on {{$comment->created_at}}
                                         </div>
                                     </article>
-                                    @endforeach
+                            @endforeach
 
                     </div>
 

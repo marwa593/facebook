@@ -12,10 +12,16 @@ class Post extends Model
         return $this->belongsto('app\Models\User');
     }
 
-    public function comments()
-    {
+   /**
+    * Get all of the comments for the Post
+    *
+    * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    */
+   public function comments()
+   {
+    //    return $this->hasMany(Comment::class, 'post_id', 'id');
         return $this->hasMany('app\Models\Comment');
-    }
+   }
 
-    
+
 }

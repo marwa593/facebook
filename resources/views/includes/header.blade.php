@@ -1,6 +1,6 @@
 
 <header>
-    <nav class="navbar navbar-default" style="align-items: center">
+    <nav class="navbar navbar-dark bg-primary" style="align-items: center">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -10,7 +10,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ route('dashboard') }}">Home</a>
+                <a class="navbar-brand" href="{{ route('dashboard') }}"style="color: white">Facebook</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -22,9 +22,9 @@
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </li>
 
-                <li><a href="{{ route('logout') }}">Logout</a></li>
+                <li><a href="{{ route('logout') }}" style="color: white">Logout</a></li>
 
-                <li><a href="{{ route('account') }}">Account</a></li>
+                <li><a href="{{ route('account') }}" style="color: white">Account</a></li>
                 {{-- @if (Auth::user())
                 <li>
                     @if (Storage::disk('local')->has($user->name . '-' . $user->id . '.jpg'))

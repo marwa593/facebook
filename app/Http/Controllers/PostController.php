@@ -30,6 +30,10 @@ class PostController extends Controller
         $post->body = $request['body'];
         $message='there is an error';
 
+        // if($request->user()){
+        //     dd($request->user());
+        // }
+
        if($request->user()->posts()->save($post))
        {
         $message='post created!';
@@ -67,6 +71,6 @@ class PostController extends Controller
 
      }
 
-     
+
 
 }

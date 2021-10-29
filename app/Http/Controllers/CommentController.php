@@ -17,18 +17,27 @@ class CommentController extends Controller
      {
 
         $comment = new Comment();
-
+        // $post = new Post();
+        // $post_id = $request->post_id;
         $this->validate($request ,[
             'Commbody'=>'required |max:1000'
         ]);
 
+        $post = Post::find($request['post_id']);
         $comment->body = $request['Commbody'];
+        //$comment->post_id = $request['post_id'];
         $message='there is an error';
-
-       if($request->post()->comments()->save($comment))
-       {
-        $message='comment created!';
-       }
+        // if ($request->post()) {
+        //    echo "yes";
+        //    dd($request->post());
+        // }
+        // else {
+        //     echo "no";
+        // }
+        // if($request->post()->comments()->save($comment))
+        // {
+        //     $message='comment created!';
+        // }
         return redirect()->route('dashboard')->with(['message' =>$message ]);
             // $comment = new Comment();
             // $post = new Post();
