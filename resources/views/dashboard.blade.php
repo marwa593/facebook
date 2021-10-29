@@ -82,7 +82,7 @@
                                     <input type="hidden" name="_token" value="{{ Session::token() }}">
                             </form>
                             @foreach ($comments as $comment)
-                                    <article class="comment" data-commentId="{{ $comment->id }}">
+                                    <article class="comment" data-commentid="{{ $comment->id }}" data-postid="{{ $post->id }}" >
                                         <p>
                                         {{$comment->Commbody}}
                                         </p>
@@ -90,7 +90,7 @@
                                             comment by {{$comment->post->user->name}} on {{$comment->created_at}}
                                         </div>
                                     </article>
-                                    @endforeach
+                            @endforeach
 
                     </div>
 

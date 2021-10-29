@@ -12,8 +12,18 @@ class Comment extends Model
     {
         return $this->belongsto('app\Models\Post');
     }
-    // public function commentU()
+    // public function user()
     // {
     //     return $this->belongsto('app\Models\User');
+    // }
+
+    // /**
+    //  * Get the post associated with the Comment
+    //  *
+    //  * @return \Illuminate\Database\Eloquent\Relations\HasOne
+    //  */
+    // public function post()
+    // {
+    //     return $this->hasOne(Post::class, 'id', 'post_id');
     // }
 }

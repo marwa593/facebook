@@ -111,7 +111,7 @@ Route::group(['middleware' => ['web']] ,function() {
     ] );
 
 
-    Route::post('/comment/{post_id}', [
+    Route::post('/comment', [
         'uses' => 'CommentController@postComment',
         'as' => 'add.comment'
         //'middleware'=>'auth'

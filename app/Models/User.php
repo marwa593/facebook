@@ -17,8 +17,14 @@ class User extends Model  implements Authenticatable
         return $this->hasMany('app\Models\Post');
     }
 
-    public function comments()
-    {
-        return $this->hasMany('app\Models\Comment');
-    }
+    // /**
+    //  * Get all of the comments for the User
+    //  *
+    //  * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
+    //  */
+    // public function comments()
+    // {
+    //     return $this->hasManyThrough(Comment::class, Post::class);
+    // }
+
 }

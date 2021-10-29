@@ -1,6 +1,6 @@
 
 <header>
-    <nav class="navbar navbar-default" style="align-items: center">
+    <nav class="navbar navbar-default color:" style="align-items: center">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
